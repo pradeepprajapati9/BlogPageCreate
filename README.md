@@ -1,4 +1,4 @@
-# Blog Creation Form
+# Blog Creation Form on laravle
 
 This project implements a **blog creation form** that allows users to add new blog posts by providing a title, slug, short description, and content. It also includes an option to upload a thumbnail image for the post.
 
