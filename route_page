@@ -1,0 +1,21 @@
+// Route for the main page that displays all the blog cards
+Route::get('/blog', function () {
+    // Fetch blog data from the external API
+    $response = file_get_contents('getblog.php');
+    $data = json_decode($response, true);
+
+    // Return the view with the fetched blog data
+    return view('blog', ['blogs' => $data['data']]);
+});
+
+// Route for displaying a single blog post
+Route::get('blog/{url}', function ($url) {
+    // Fetch the blog post using the DB facade
+    $blog = DB::table('blog')->where('url', $url)->first(); // Adjust the table name if needed
+
+    if ($blog) {
+        return view('blogdetail', ['blog' => $blog]);
+    } else {
+        return redirect('/')->with('error', 'Blog not found!');
+    }
+});
