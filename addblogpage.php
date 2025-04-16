@@ -323,7 +323,7 @@
         };
 
         // Fetch data from the API
-        const response = await fetch("https://srankbazaar.com/API/Admin_api/get_blog_id.php", requestOptions);
+        const response = await fetch("get_blog_id.php", requestOptions);
         const result = await response.json(); // Parse the JSON response
 
         Swal.close();
